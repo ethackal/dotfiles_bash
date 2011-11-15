@@ -1,14 +1,16 @@
-PS1="[\t][ \W ]$ "
+PS1="[ \W ]$ "
+
 export LSCOLORS="gxfxbHdxbxegedabagacad"
 export CLICOLORS=42
 
-for alias_file in `find ~/.bash/aliases`
-do
-  [[ -f $alias_file ]] && source $alias_file
-done
-
-for export_file in `find ~/.bash/exports`
-do
-  [[ -f $export_file ]] && source $export_file
-done
-
+#apply local bashrc fragments
+if [ -d ~/.bashrc_local ]
+then
+  for local_file in `find ~/.bashrc_local`
+  do
+    [[ -f $local_file ]] && source $local_file
+  done
+elif [ -f ~/.bashrc_local ]
+then
+  source ~/.bashrc_local
+fi
