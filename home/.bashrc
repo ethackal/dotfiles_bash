@@ -1,3 +1,4 @@
+
 PS1="[ \W ]$ "
 
 export LSCOLORS="gxfxbHdxbxegedabagacad"
@@ -6,7 +7,7 @@ export CLICOLORS=42
 #apply local bashrc fragments
 if [ -d ~/.bashrc_local ]
 then
-  for local_file in `find ~/.bashrc_local`
+  for local_file in `find ~/.bashrc_local -name '[!.]*'`
   do
     [[ -f $local_file ]] && source $local_file
   done

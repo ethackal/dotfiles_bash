@@ -1,18 +1,8 @@
 #Function to get the git branch of the pwd
-function parse_git_branch {
+function fp_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/{\1}/'
 }
 
-#set up Flexible Prompt to show git branch of pwd
-if test ${__FLEXIBLE_PROMPT__+defined}
-then
-  
-  GREEN="\[\033[0;32m"
-  NORM="\[\033[0m"
-  PS1_PWD_POSTFIX="$GREEN\$(parse_git_branch)$NORM$PS1_PWD_POSTFIX"
-  
-  set_flexible_prompt
-fi
 
 # git command aliases
 alias ga="git add"
@@ -31,7 +21,7 @@ alias grebase="git rebase"
 alias greset="git reset"
 alias grm="git rm"
 alias gshow="git show"
-alias gstatus="git status"
+alias gs="git status"
 alias gtag="git tag"
 
 # git svn aliases
