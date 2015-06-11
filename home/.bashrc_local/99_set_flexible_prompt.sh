@@ -4,7 +4,7 @@ function set_flexible_prompt {
   local yellow="\\[\033[33m\\]" 
   local blue="\\[\033[34m\\]" 
   local clear="\\[\033[0;0m\\]"
-  PS1="$clear\$(fp_spookt_env_warning)[ \W$green\$(fp_git_branch)$clear\$(fp_spookt_env_warning) ]$ "
+  PS1="$clear[ \W$green\$(fp_git_branch)$clear ]$ "
 }
 
 set_flexible_prompt
